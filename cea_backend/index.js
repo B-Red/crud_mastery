@@ -47,5 +47,16 @@ app.put('/:id', (req, res) => {
     res.send({ data })
 })
 
+app.delete('/:id', (req, res) => {
+    var { id } = req.params
+    var mapped = data.filter(obj => {
+        return obj.id != id
+    })
+    data = mapped
+    res.send ({ data })
+})
+
+
+
 
 app.listen(port)
