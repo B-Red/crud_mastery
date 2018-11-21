@@ -56,7 +56,15 @@ app.delete('/:id', (req, res) => {
     res.send ({ data })
 })
 
+app.use(function (req, res, next) {
+    
+    res.status(404).send('Something broke!(404)')
+})
 
+app.use(function (err, req, res, next) {
+    console.error(err.stack)
+    res.status(500).send('Something broke!(500)')
+})
 
 
 app.listen(port)
