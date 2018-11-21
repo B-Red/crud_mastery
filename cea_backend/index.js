@@ -6,6 +6,9 @@ var data = require('./data.json')
 
 const port = 3000
 
+app.get('/', (req, res) => {
+    res.send({ data })
+})
 
 
 app.listen(port)
